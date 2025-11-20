@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapphire Interiors - Luxury Interior Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #ffd700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #ffd700;
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+        }
+
+        /* Project Planner Section */
+        .project-planner {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .planner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .planner-selection {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .room-category {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1e3c72;
+        }
+
+        .room-category h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .room-category h3 i {
+            color: #ffd700;
+        }
+
+        .service-options {
+            display: grid;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .service-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 5px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-option:hover {
+            border-color: #1e3c72;
+            box-shadow: 0 2px 8px rgba(30,60,114,0.1);
+        }
+
+        .service-option.selected {
+            border-color: #1e3c72;
+            background: #e8f0fe;
+        }
+
+        .service-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .service-info {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .service-info h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .service-info p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .service-price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+        }
+
+        .price {
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Summary Panel */
+        .summary-panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .summary-panel h3 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .selected-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .selected-item .item-name {
+            color: #333;
+        }
+
+        .selected-item .item-price {
+            color: #1e3c72;
+            font-weight: bold;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+        }
+
+        .summary-totals {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .total-row.grand-total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3c72;
+            padding-top: 0.8rem;
+            border-top: 2px solid #1e3c72;
+        }
+
+        .generate-plan-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 0.5rem;
+        }
+
+        .generate-plan-btn:hover {
+            background: #2a5298;
+        }
+
+        .generate-plan-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #1e3c72;
+        }
+
+        .plan-header h2 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-header p {
+            color: #666;
+        }
+
+        .plan-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-section h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .plan-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan-totals {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .plan-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .plan-total-row.final {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1e3c72;
+            padding-top: 1rem;
+            border-top: 2px solid #1e3c72;
+        }
+
+        .plan-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .plan-actions button {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .download-btn:hover {
+            background: #2a5298;
+        }
+
+        .email-btn {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+
+        .email-btn:hover {
+            background: #ffed4e;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 0.5;
+        }
+
+        .portfolio-item span {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ffd700;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #1e3c72;
+            width: 50px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            padding: 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2a5298;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .planner-container {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3c72;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 0.5rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2,
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                Sapphire Interiors
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#planner">Plan Project</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Space Into Art</h1>
+            <p>Luxury Interior Design That Reflects Your Unique Style</p>
+            <a href="#planner" class="btn">Plan Your Project Now</a>
+        </div>
+    </section>
+
+    <!-- Project Planner Section -->
+    <section class="project-planner" id="planner">
+        <h2 class="section-title">Plan Your Dream Project</h2>
+        <p class="section-subtitle">Select the rooms and services you need, and we'll create a custom plan with pricing and timeline</p>
+        
+        <div class="planner-container">
+            <div class="planner-selection">
+                <!-- Living Room -->
+                <div class="room-category">
+                    <h3><i class="fas fa-couch"></i> Living Room</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Living Room" data-service="Complete Redesign" data-price="5000" data-duration="3">
+                            <div class="service-info">
+                                <h4>Complete Redesign</h4>
+                                <p>Full makeover with furniture & decor</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">5000</span>
+                                <span class="duration">3 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Living Room" data-service="Furniture Selection" data-price="1500" data-duration="1">
+                            <div class="service-info">
+                                <h4>Furniture Selection</h4>
+                                <p>Curated furniture pieces</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">1500</span>
+                                <span class="duration">1 week</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Living Room" data-service="Color Consultation" data-price="500" data-duration="0.5">
+                            <div class="service-info">
+                                <h4>Color Consultation</h4>
+                                <p>Professional color scheme planning</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">2500</span>
+                                <span class="duration">3 days</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bedroom -->
+                <div class="room-category">
+                    <h3><i class="fas fa-bed"></i> Bedroom</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bedroom" data-service="Master Bedroom Suite" data-price="4500" data-duration="3">
+                            <div class="service-info">
+                                <h4>Master Bedroom Suite</h4>
+                                <p>Complete bedroom transformation</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">4500</span>
+                                <span class="duration">3 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bedroom" data-service="Custom Closet Design" data-price="2000" data-duration="2">
+                            <div class="service-info">
+                                <h4>Custom Closet Design</h4>
+                                <p>Organized storage solutions</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">2000</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bedroom" data-service="Lighting Design" data-price="800" data-duration="1">
+                            <div class="service-info">
+                                <h4>Lighting Design</h4>
+                                <p>Ambient & task lighting</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">6800</span>
+                                <span class="duration">1 week</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Kitchen -->
+                <div class="room-category">
+                    <h3><i class="fas fa-utensils"></i> Kitchen</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Kitchen" data-service="Full Kitchen Remodel" data-price="15000" data-duration="6">
+                            <div class="service-info">
+                                <h4>Full Kitchen Remodel</h4>
+                                <p>Complete renovation with appliances</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">15000</span>
+                                <span class="duration">6 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Kitchen" data-service="Cabinet Refacing" data-price="3500" data-duration="2">
+                            <div class="service-info">
+                                <h4>Cabinet Refacing</h4>
+                                <p>Update existing cabinets</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">3500</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Kitchen" data-service="Countertop Installation" data-price="2500" data-duration="1">
+                            <div class="service-info">
+                                <h4>Countertop Installation</h4>
+                                <p>Premium granite/quartz counters</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">2500</span>
+                                <span class="duration">1 week</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bathroom -->
+                <div class="room-category">
+                    <h3><i class="fas fa-bath"></i> Bathroom</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bathroom" data-service="Spa Bathroom Renovation" data-price="8000" data-duration="4">
+                            <div class="service-info">
+                                <h4>Spa Bathroom Renovation</h4>
+                                <p>Luxury bathroom transformation</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">8000</span>
+                                <span class="duration">4 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bathroom" data-service="Tile & Fixtures" data-price="3000" data-duration="2">
+                            <div class="service-info">
+                                <h4>Tile & Fixtures</h4>
+                                <p>Modern tiles and fixtures update</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">3000</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Bathroom" data-service="Vanity Upgrade" data-price="1200" data-duration="1">
+                            <div class="service-info">
+                                <h4>Vanity Upgrade</h4>
+                                <p>Custom vanity with storage</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">1200</span>
+                                <span class="duration">1 week</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Dining Room -->
+                <div class="room-category">
+                    <h3><i class="fas fa-glass-cheers"></i> Dining Room</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Dining Room" data-service="Elegant Dining Setup" data-price="3500" data-duration="2">
+                            <div class="service-info">
+                                <h4>Elegant Dining Setup</h4>
+                                <p>Complete dining room design</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">3500</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Dining Room" data-service="Statement Lighting" data-price="1000" data-duration="0.5">
+                            <div class="service-info">
+                                <h4>Statement Lighting</h4>
+                                <p>Chandelier & ambient lighting</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">1000</span>
+                                <span class="duration">3 days</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Home Office -->
+                <div class="room-category">
+                    <h3><i class="fas fa-laptop-house"></i> Home Office</h3>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Home Office" data-service="Professional Office Setup" data-price="4000" data-duration="2">
+                            <div class="service-info">
+                                <h4>Professional Office Setup</h4>
+                                <p>Ergonomic & productive workspace</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">4000</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
+                        </label>
+                        <label class="service-option">
+                            <input type="checkbox" onchange="updateSummary()" data-room="Home Office" data-service="Built-in Shelving" data-price="1800" data-duration="1.5">
+                            <div class="service-info">
+                                <h4>Built-in Shelving</h4>
+                                <p>Custom storage & display</p>
+                            </div>
+                            <div class="service-price">
+                                <span class="price">1800</span>
+                                <span class="duration">1.5 weeks</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Panel -->
+            <div class="summary-panel">
+                <h3><i class="fas fa-clipboard-list"></i> Your Project Summary</h3>
+                <div class="selected-items" id="selectedItems">
+                    <div class="empty-message">
+                        <i class="fas fa-hand-pointer" style="font-size: 2rem; color: #ddd; margin-bottom: 1rem;"></i>
+                        <p>Select services to build your project plan</p>
+                    </div>
+                </div>
+                <div class="summary-totals" id="summaryTotals" style="display: none;">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax (10%):</span>
+                        <span id="tax">0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Estimated Duration:</span>
+                        <span id="duration">0 weeks</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total Cost:</span>
+                        <span id="grandTotal">0</span>
+                    </div>
+                </div>
+                <button class="generate-plan-btn" id="generateBtn" onclick="generatePlan()" disabled>
+                    <i class="fas fa-file-invoice-dollar"></i> Generate Complete Plan
+                </button>
+                <small style="color: #999; text-align: center; display: block;">Select at least one service to continue</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan Modal -->
+    <div class="modal" id="planModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="plan-header">
+                <h2><i class="fas fa-gem"></i> Sapphire Interiors</h2>
+                <p>Your Custom Interior Design Plan</p>
+                <small>Generated on: <span id="planDate"></span></small>
+            </div>
+
+            <div id="planDetails"></div>
+
+            <div class="plan-actions">
+                <button class="download-btn" onclick="downloadPlan()">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button class="email-btn" onclick="emailPlan()">
+                    <i class="fas fa-envelope"></i> Email Plan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Interior Design Studio">
+        </div>
+        <div class="about-content">
+            <h2>About Sapphire Interiors</h2>
+            <p>With over a decade of experience in luxury interior design, Sapphire Interiors has been transforming houses into dream homes across the country.</p>
+            <p>Our team of award-winning designers brings creativity, functionality, and elegance to every project. We believe that great design should not only look beautiful but also enhance the way you live.</p>
+            <p>From contemporary minimalism to classic elegance, we craft spaces that tell your unique story.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Residential Design</h3>
+                <p>Complete home interior solutions tailored to your lifestyle and preferences.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>Commercial Design</h3>
+                <p>Professional office and commercial spaces that inspire productivity.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Renovation</h3>
+                <p>Breathe new life into your existing spaces with our renovation expertise.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-pencil-ruler"></i>
+                <h3>Space Planning</h3>
+                <p>Optimize your space with intelligent layout and design planning.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>Color Consultation</h3>
+                <p>Expert guidance on color schemes that create the perfect ambiance.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Lighting Design</h3>
+                <p>Illuminate your space with strategic and stunning lighting solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Modern Living Room">
+                <span>Modern Living Room</span>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80" alt="Luxury Bedroom">
+                <span>Luxury Bedroom</span>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=800&q=80" alt="Contemporary Kitchen">
+                <span>Contemporary Kitchen</span>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80" alt="Elegant Dining">
+                <span>Elegant Dining</span>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Executive Office">
+                <span>Executive Office</span>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Spa Bathroom">
+                <span>Spa Bathroom</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Mitchell">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Sarah Mitchell</h4>
+                        <p>Homeowner - Beverly Hills</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Sapphire Interiors transformed our home beyond our wildest dreams. Their attention to detail and understanding of our vision was remarkable. Highly recommended!"</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Davidson">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>James Davidson</h4>
+                        <p>CEO - Tech Solutions Inc.</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Our office renovation was completed on time and exceeded expectations. The team's professionalism and creativity made the entire process seamless."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Parker">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Emily Parker</h4>
+                        <p>Homeowner - Manhattan</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Absolutely stunning work! They took our small apartment and made it feel spacious and luxurious. Every corner is now Instagram-worthy!"</p>
+            </div>
+
+           
+
+            
+
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Design Avenue, Suite 456<br>,ND 10001, New Delhi, INDIA </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@sapphireinteriors.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone">
+                <textarea placeholder="Tell us about your project" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Sapphire Interiors. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+    </footer>
+
+    <script>
+        // Store selected services
+        let selectedServices = [];
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+
+        // Update summary when checkbox changes
+        function updateSummary() {
+            const checkboxes = document.querySelectorAll('.service-option input[type="checkbox"]');
+            selectedServices = [];
+            
+            checkboxes.forEach(checkbox => {
+                const parent = checkbox.closest('.service-option');
+                if (checkbox.checked) {
+                    parent.classList.add('selected');
+                    selectedServices.push({
+                        room: checkbox.dataset.room,
+                        service: checkbox.dataset.service,
+                        price: parseFloat(checkbox.dataset.price),
+                        duration: parseFloat(checkbox.dataset.duration)
+                    });
+                } else {
+                    parent.classList.remove('selected');
+                }
+            });
+
+            displaySummary();
+        }
+
+        // Display summary
+        function displaySummary() {
+            const itemsContainer = document.getElementById('selectedItems');
+            const totalsContainer = document.getElementById('summaryTotals');
+            const generateBtn = document.getElementById('generateBtn');
+
+            if (selectedServices.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="empty-message">
+                        <i class="fas fa-hand-pointer" style="font-size: 2rem; color: #ddd; margin-bottom: 1rem;"></i>
+                        <p>Select services to build your project plan</p>
+                    </div>
+                `;
+                totalsContainer.style.display = 'none';
+                generateBtn.disabled = true;
+                return;
+            }
+
+            // Display selected items
+            let itemsHTML = '';
+            selectedServices.forEach(item => {
+                itemsHTML += `
+                    <div class="selected-item">
+                        <div class="item-name">
+                            <strong>${item.room}</strong><br>
+                            <small>${item.service}</small>
+                        </div>
+                        <div class="item-price">$${item.price.toLocaleString()}</div>
+                    </div>
+                `;
+            });
+            itemsContainer.innerHTML = itemsHTML;
+
+            // Calculate totals
+            const subtotal = selectedServices.reduce((sum, item) => sum + item.price, 0);
+            const tax = subtotal * 0.10;
+            const total = subtotal + tax;
+            const duration = selectedServices.reduce((sum, item) => sum + item.duration, 0);
+
+            // Display totals
+            document.getElementById('subtotal').textContent = `$${subtotal.toLocaleString()}`;
+            document.getElementById('tax').textContent = `$${tax.toLocaleString()}`;
+            document.getElementById('grandTotal').textContent = `$${total.toLocaleString()}`;
+            document.getElementById('duration').textContent = `${duration} weeks`;
+
+            totalsContainer.style.display = 'block';
+            generateBtn.disabled = false;
+        }
+
+        // Generate complete plan
+        function generatePlan() {
+            if (selectedServices.length === 0) return;
+
+            const modal = document.getElementById('planModal');
+            const planDetails = document.getElementById('planDetails');
+            const planDate = document.getElementById('planDate');
+
+            // Set current date
+            const now = new Date();
+            planDate.textContent = now.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+            // Group services by room
+            const groupedServices = {};
+            selectedServices.forEach(service => {
+                if (!groupedServices[service.room]) {
+                    groupedServices[service.room] = [];
+                }
+                groupedServices[service.room].push(service);
+            });
+
+            // Generate plan HTML
+            let planHTML = '';
+            for (const [room, services] of Object.entries(groupedServices)) {
+                planHTML += `
+                    <div class="plan-section">
+                        <h3>${room}</h3>
+                `;
+                services.forEach(service => {
+                    planHTML += `
+                        <div class="plan-item">
+                            <div>
+                                <strong>${service.service}</strong><br>
+                                <small>${service.duration} weeks</small>
+                            </div>
+                            <strong>$${service.price.toLocaleString()}</strong>
+                        </div>
+                    `;
+                });
+                planHTML += `</div>`;
+            }
+
+            // Calculate totals
+            const subtotal = selectedServices.reduce((sum, item) => sum + item.price, 0);
+            const tax = subtotal * 0.10;
+            const total = subtotal + tax;
+            const duration = selectedServices.reduce((sum, item) => sum + item.duration, 0);
+
+            planHTML += `
+                <div class="plan-totals">
+                    <div class="plan-total-row">
+                        <span>Subtotal:</span>
+                        <span>$${subtotal.toLocaleString()}</span>
+                    </div>
+                    <div class="plan-total-row">
+                        <span>Tax (10%):</span>
+                        <span>$${tax.toLocaleString()}</span>
+                    </div>
+                    <div class="plan-total-row">
+                        <span>Estimated Duration:</span>
+                        <span>${duration} weeks</span>
+                    </div>
+                    <div class="plan-total-row final">
+                        <span>Total Investment:</span>
+                        <span>$${total.toLocaleString()}</span>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffd700;">
+                        <strong>Next Steps:</strong>
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>Our design team will contact you within 24 hours</li>
+                            <li>Schedule an in-home consultation</li>
+                            <li>Finalize design plans and timeline</li>
+                            <li>Begin your transformation!</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            planDetails.innerHTML = planHTML;
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('planModal').classList.remove('active');
+        }
+
+        // Download plan (simulated)
+        function downloadPlan() {
+            alert('PDF download feature would be implemented here. For now, you can print this page using your browser\'s print function (Ctrl+P or Cmd+P).');
+            window.print();
+        }
+
+        // Email plan (simulated)
+        function emailPlan() {
+            const email = prompt('Enter your email address:');
+            if (email) {
+                alert(`Plan will be sent to ${email}. In a production environment, this would trigger an email with your complete design plan.`);
+            }
+        }
+
+        // Contact form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('planModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
